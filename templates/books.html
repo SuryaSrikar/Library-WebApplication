@@ -1,0 +1,103 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+
+<h1>Book Table</h1>
+
+    <div class = "row">
+        <div class = "col">
+            <!-- insert -->
+            <h2>
+                Insert 
+            </h2>
+
+            <form action="/insertBook" method="GET">
+                <div class="form-group">
+                <input name="bookCode" class="form-control" type="text" placeholder="bookCode" required>
+                <input name="title" class="form-control" type="text" placeholder="title" required>
+                <input name="publisherCode" class="form-control" type="text" placeholder="publisherCode" required>
+                <input name="type" class="form-control" type="text" placeholder="type" required>
+                <input name="paperback" class="form-control" type="text" placeholder="paperback" required>
+
+                <button type="submit" class="btn btn-primary">insert</button>
+                </div>
+            </form>   
+        </div>
+
+        <div class = "col">
+        <!-- modify -->
+            <h2>
+                modify 
+            </h2>
+            
+            <form action="/modifyBook" method="GET">
+                <div class="form-group">
+                        <input name="bookCode" class="form-control" type="text" placeholder="bookCode" required>
+                        <input name="title" class="form-control" type="text" placeholder="title" required>
+                        <input name="publisherCode" class="form-control" type="text" placeholder="publisherCode" required>
+                        <input name="type" class="form-control" type="text" placeholder="type" required>
+                        <input name="paperback" class="form-control" type="text" placeholder="publisherCode" required>
+                    
+                        <button type="submit" class="btn btn-primary">modify</button>
+                </div>
+            </form>   
+        </div>
+
+        <div class = "col">
+            <!-- delete -->
+            <h2>
+                delete
+            </h2>
+            
+            <form action="/deleteBook" method="GET">
+                <div class="form-group">
+                    <input name="bookCode" class="form-control" type="text" placeholder="bookCode" required>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </form>   
+        </div>
+
+    </div>
+
+    <!-- search  --> 
+    <div>
+        <form action="/books" method="GET">
+            <input name="titleFilter" class="form-control" type="text" placeholder="search book title" required>
+            <button type="submit" class="btn btn-danger">Search</button>
+        </form>
+    </div>
+
+
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Book Code
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Publisher Code
+            </th>
+            <th>
+                type
+            </th>
+            <th>
+                paperback
+            </th>
+        </tr>
+    </thead>
+
+    {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

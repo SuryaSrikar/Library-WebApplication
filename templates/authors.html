@@ -1,0 +1,86 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+
+<h1>Author Table</h1>
+
+
+    <div class = "row">
+        <div class = "col">
+            <!-- insert -->
+            <h2>
+                Insert 
+            </h2>
+
+            <form action="/insertAuthor" method="GET">
+                <div class="form-group">
+                <input name="author_id" class="form-control" type="text" placeholder="Author Number" required>
+                <input name="author_last_name" class="form-control" type="text" placeholder="Author Last Name " required>
+                <input name="author_first_name" class="form-control" type="text" placeholder="Author First Name " required>
+
+                <button type="submit" class="btn btn-primary">insert</button>
+                </div>
+            </form>   
+        </div>
+
+        <div class = "col">
+        <!-- modify -->
+            <h2>
+                modify 
+            </h2>
+            
+            <form action="/modifyAuthor" method="GET">
+                <div class="form-group">
+                    <input name="author_id" class="form-control" type="text" placeholder="Author Number" required>
+                    <input name="author_last_name" class="form-control" type="text" placeholder="Author Last Name " required>
+                    <input name="author_first_name" class="form-control" type="text" placeholder="Author First Name " required>
+
+                    <button type="submit" class="btn btn-primary">modify</button>
+                </div>
+            </form>   
+        </div>
+
+        <div class = "col">
+            <!-- delete -->
+            <h2>
+                delete
+            </h2>
+            
+            <form action="/deleteAuthor" method="GET">
+                <div class="form-group">
+                    <input name="author_id" class="form-control" type="text" placeholder="Author Number" required>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </form>   
+        </div>
+
+    </div>
+    
+    
+
+
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Author Number
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                First Name 
+            </th>
+        </tr>
+    </thead>
+
+    {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

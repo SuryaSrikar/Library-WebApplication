@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Database</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+</head>
+<body>
+                
+    <div class="container">
+        <div class = "row">
+            <div class = "col">
+                <!-- <img src="/static/open-book.jpg" width="100" height="100" alt="book"> -->
+                <IMG SRC="/static/book.gif" width="150" height="150" alt="book">
+            </div>
+            <div class = "col">
+                <div class="header">
+                    <h3 ALIGN=right class="text-muted">Book Database</h3>
+                    <nav class="nav">
+                        <a class="nav-link a" href="/">Home</a>
+                        <a class="nav-link a" href="/search">Search</a>
+                        <a class="nav-link" href="/authors">Authors</a>
+                        <a class="nav-link" href="/books">Books</a>
+                        <a class="nav-link" href="/publisher">Publisher</a>
+                        <a class="nav-link" href="/copy">Copy</a>
+                        <a class="nav-link" href="/branch">Branch</a>
+                        <a class="nav-link" href="/inventory">Inventory</a>
+                        <a class="nav-link" href="/wrote">Wrote</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+ 
+        <footer class="footer">
+        </footer>
+    </div>
+</body>
+</html>

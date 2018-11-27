@@ -1,0 +1,83 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+<h1>Publisher Table</h1>
+    <div class = "row">
+        <div class = "col">
+            <!-- insert -->
+            <h2>
+                Insert 
+            </h2>
+
+            <form action="/insertPublisher" method="GET">
+                <div class="form-group">
+                <input name="publisherCode" class="form-control" type="text" placeholder="publisher code" required>
+                <input name="publisherName" class="form-control" type="text" placeholder="publisher name" required>
+                <input name="city" class="form-control" type="text" placeholder="city" required>
+
+                <button type="submit" class="btn btn-primary">insert</button>
+                </div>
+            </form>   
+        </div>
+
+        <div class = "col">
+        <!-- modify -->
+            <h2>
+                modify 
+            </h2>
+            
+            <form action="/modifyPublisher" method="GET">
+                <div class="form-group">
+                    <input name="publisherCode" class="form-control" type="text" placeholder="publisher code" required>
+                    <input name="publisherName" class="form-control" type="text" placeholder="publisher name" required>
+                    <input name="city" class="form-control" type="text" placeholder="city" required>
+    
+                    <button type="submit" class="btn btn-primary">modify</button>
+                </div>
+            </form>   
+        </div>
+
+        <div class = "col">
+            <!-- delete -->
+            <h2>
+                delete
+            </h2>
+            
+            <form action="/deletePublisher" method="GET">
+                <div class="form-group">
+                    <input name="publisherCode" class="form-control" type="text" placeholder="publisher code" required>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </form>   
+        </div>
+
+    </div>
+    
+    
+
+
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Publisher Code
+            </th>
+            <th>
+                Publisher Name
+            </th>
+            <th>
+                City
+            </th>
+        </tr>
+    </thead>
+
+    {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

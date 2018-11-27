@@ -1,0 +1,29 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+<h1>Inventory Table</h1>
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Book Code 
+            </th>
+            <th>
+                Branch Number
+            </th>
+            <th>
+                on Hand
+            </th>
+        </tr>
+    </thead>
+
+    {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+
+<h1>Search For Books Database</h1>
+
+    <!-- search  --> 
+    <div>
+        <form action="/search" method="GET">
+            <input name="titleFilter" class="form-control" type="text" placeholder="search book title" required>
+            <button type="submit" class="btn btn-danger">Search</button>
+        </form>
+    </div>
+
+
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Book Title 
+            </th>
+            <th>
+                Publisher
+            </th>
+            <th>
+                Author First Name
+            </th>
+            <th>
+                Author Last Name
+            </th>
+            <th>
+                Branch Name
+            </th>
+            <th>
+                Branch Location
+            </th>
+            <th>
+                Book Quality
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+
+    {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

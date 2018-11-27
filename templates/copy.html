@@ -1,0 +1,95 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+<h1>Copy Table</h1>
+    <div class = "row">
+        <div class = "col">
+            <!-- insert -->
+            <h2>
+                Insert 
+            </h2>
+
+            <form action="/insertCopy" method="GET">
+                <div class="form-group">
+                <input name="bookCode" class="form-control" type="text" placeholder="book code" required>
+                <input name="branchNum" class="form-control" type="text" placeholder="branch number" required>
+                <input name="copyNum" class="form-control" type="text" placeholder="copy number" required>
+                <input name="quality" class="form-control" type="text" placeholder="quality" required>
+                <input name="price" class="form-control" type="text" placeholder="price" required>
+
+                <button type="submit" class="btn btn-primary">insert</button>
+                </div>
+            </form>   
+        </div>
+
+        <div class = "col">
+        <!-- modify -->
+            <h2>
+                modify 
+            </h2>
+            
+            <form action="/modifyCopy" method="GET">
+                <div class="form-group">
+                    <input name="bookCode" class="form-control" type="text" placeholder="book code" required>
+                    <input name="branchNum" class="form-control" type="text" placeholder="branch number" required>
+                    <input name="copyNum" class="form-control" type="text" placeholder="copy number" required>
+                    <input name="quality" class="form-control" type="text" placeholder="quality" required>
+                    <input name="price" class="form-control" type="text" placeholder="price" required>
+                    
+                    <button type="submit" class="btn btn-primary">modify</button>
+                </div>
+            </form>   
+        </div>
+
+        <div class = "col">
+            <!-- delete -->
+            <h2>
+                delete
+            </h2>
+            
+            <form action="/deleteCopy" method="GET">
+                <div class="form-group">
+                    <input name="bookCode" class="form-control" type="text" placeholder="book code" required>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </form>   
+        </div>
+
+    </div>
+    
+    
+
+
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Book Code
+            </th>
+            <th>
+                Branch Number
+            </th>
+            <th>
+                Copy Number
+            </th>
+            <th>
+                Quality
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+
+    {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
